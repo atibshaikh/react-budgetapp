@@ -3,11 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import useLocalStorage from "../hooks/useLocalStorage";
 const BudgetsContext =  createContext();
 
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized";
+
 export function useBudgets(){
 
     return useContext(BudgetsContext);
 
 }
+
+
 
 // {
 //     id:
@@ -26,6 +30,7 @@ export const BudgetsProvider = ({ children }) => {
     const [budgets, setBudgets]= useLocalStorage("budgets", []);
     const [expenses, setExpenses]= useLocalStorage("expenses", []);
 
+    //this will return all the expenses of specific budget box (it will return array)
     function getBudgetExpenses(budgetId){
         return expenses.filter( expense => expense.budgetId === budgetId )
     }
