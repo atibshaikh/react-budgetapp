@@ -49,6 +49,7 @@ export const BudgetsProvider = ({ children }) => {
         })
     }
 
+    //for delete budget
     function deleteBudget({id}){
 
         // TODO : Deal with expenses
